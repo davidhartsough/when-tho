@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Vote • when tho</title>
+
+    <meta
+      name="description"
+      content="A hot tool for scheduling and planning a meeting/call with people across different cities and timezones."
+    />
+    <meta
+      name="keywords"
+      content="time, timezone, zone, city, when, tho, schedule, plan, meeting, call"
+    />
+    <meta name="author" content="David Hartsough" />
+    <meta name="application-name" content="when tho" />
+    <meta name="theme-color" content="#1f87ad" />
+    <!-- open graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="when tho" />
+    <meta
+      property="og:description"
+      content="A hot tool for scheduling and planning a meeting/call with people across different cities and timezones."
+    />
+    <meta property="og:url" content="https://when-tho.web.app/vote" />
+    <meta property="og:site_name" content="when tho" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="/icon512.png" />
+    <meta property="og:image:alt" content="when tho logo icon" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="when tho" />
+    <meta
+      name="twitter:description"
+      content="A hot tool for scheduling and planning a meeting/call with people across different cities and timezones."
+    />
+    <meta name="twitter:image" content="/icon512.png" />
+    <meta name="twitter:image:alt" content="when tho logo icon" />
+    <meta name="twitter:image:type" content="image/png" />
+    <meta name="twitter:image:width" content="512" />
+    <meta name="twitter:image:height" content="512" />
+    <!-- icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="any" />
+    <link rel="icon" href="/icon16.png" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/icon32.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/icon192.png" type="image/png" sizes="192x192" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link
+      rel="apple-touch-icon"
+      href="/apple-icon.png"
+      type="image/png"
+      sizes="180x180"
+    />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1f87ad" />
+    <!-- manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/base.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/loader.css" />
+    <link rel="stylesheet" href="/vote.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>when tho</h1>
+        <p>•</p>
+        <h2>vote</h2>
+      </header>
+      <section>
+        <h3 id="event-name">Loading...</h3>
+        <div id="days"></div>
+        <footer>
+          <button
+            type="button"
+            id="submit"
+            class="submit"
+            disabled
+            title="Please vote for all time slots"
+          >
+            Submit
+          </button>
+        </footer>
+        <div id="loader" class="show"></div>
+      </section>
+    </main>
+
+    <div id="modal" class="hide">
+      <div id="overlay"></div>
+      <form id="name-form">
+        <label for="given-name">What's your name?</label>
+        <input
+          type="text"
+          placeholder="Name"
+          name="given-name"
+          id="given-name"
+          autocomplete="given-name"
+          maxlength="80"
+          minlength="2"
+          pattern="^[\p{L} ]+$"
+          required
+        />
+        <button type="submit" class="submit">Cast your votes</button>
+      </form>
+    </div>
+
+    <template id="day-template">
+      <div class="day">
+        <h4></h4>
+        <div class="chunks"></div>
+      </div>
+    </template>
+    <template id="chunk-template">
+      <div class="chunk">
+        <div class="chunk-header"></div>
+        <div class="chunk-body"></div>
+      </div>
+    </template>
+    <template id="chunk-header-template">
+      <div>
+        <select>
+          <option selected value disabled>Availability</option>
+          <option value="0">🟥 Busy</option>
+          <option value="1">🟨 Maybe</option>
+          <option value="2">🟩 Free</option>
+          <option value="3">🟦 Prefer</option>
+        </select>
+      </div>
+    </template>
+    <template id="hour-template">
+      <div class="row">
+        <p class="hour"></p>
+        <div class="hour-vote">
+          <div class="options">
+            <button class="vote-btn vote-0">
+              <span class="vote-btn-txt">Busy</span>
+            </button>
+            <button class="vote-btn vote-1">
+              <span class="vote-btn-txt">Maybe</span>
+            </button>
+            <button class="vote-btn vote-2">
+              <span class="vote-btn-txt">Free</span>
+            </button>
+            <button class="vote-btn vote-3">
+              <span class="vote-btn-txt">Prefer</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+    <script src="/vote.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "hosting": {
+    "public": "min",
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "ignore": ["**/.*"],
+    "rewrites": [
+      {
+        "source": "/api/poll",
+        "function": "poll"
+      },
+      {
+        "source": "/api/votes",
+        "function": "votes"
+      },
+      {
+        "source": "/api/vote",
+        "function": "vote"
+      },
+      {
+        "source": "/api/create",
+        "function": "create"
+      }
+    ]
+  }
+}
