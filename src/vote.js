@@ -15,7 +15,7 @@ function redirectOut() {
 }
 
 const eventId = new URL(window.location.href).searchParams.get("event");
-if (!eventId || eventId.length < 18) {
+if (!eventId || eventId.length < 4) {
   redirectOut();
   throw new Error("Invalid event id");
 }
